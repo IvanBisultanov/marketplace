@@ -1,0 +1,13 @@
+<button
+  *ngIf="product"
+  [disabled]="isSelected || product.pending"
+  (click)="selectProduct.emit()"
+  class="product-preview"
+  [class.product-preview--pending]="product.pending"
+>
+  <img [src]="product.img" [alt]="product.title" class="product-preview__img" />
+  <div class="product-preview__title">{{ product.title }}</div>
+  <div class="product-preview__price">
+    {{ product.price.value | currency : product.price.currency }}
+  </div>
+</button>

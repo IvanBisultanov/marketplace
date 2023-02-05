@@ -1,0 +1,24 @@
+:host {
+  ::ng-deep {
+    .mdc-button__label {
+      display: flex;
+    }
+  }
+}
+.basket-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  &__img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    object-position: center;
+  }
+  &__title {
+    margin-bottom: 0.5rem;
+  }
+  &__delete {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,40 @@
+@import '../../../../shared/styles/variables';
+
+.product-preview {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  &[disabled] {
+    color: rgba($text-color-primary, 0.5);
+    .product-preview__img {
+      opacity: 0.5;
+    }
+  }
+  &:before {
+    transform: translateX(-100%);
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 0.25rem;
+    background: $background-accent;
+    z-index: 1;
+  }
+  &--pending {
+    &:before {
+      transition: transform 1s ease-out;
+      transform: translateX(-0.5rem);
+    }
+  }
+  &__img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center;
+    margin-bottom: 1rem;
+  }
+  &__title {
+    margin-bottom: 0.6rem;
+  }
+}

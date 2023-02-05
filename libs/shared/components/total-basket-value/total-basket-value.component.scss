@@ -1,0 +1,8 @@
+@import '../../styles/variables';
+
+.total-basket-value {
+  &__error {
+    margin: 1rem auto 0;
+    color: $text-color-error;
+  }
+}

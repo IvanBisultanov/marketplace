@@ -1,0 +1,33 @@
+$gap: 1rem;
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  &__group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $gap;
+    &-title {
+      flex-basis: 100%;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: $gap;
+    margin-bottom: 0.6rem;
+    &--full-width {
+      flex-basis: 100%;
+    }
+    &--half-width {
+      flex-basis: calc(50% - $gap / 2);
+      min-width: 11.8rem;
+    }
+    @media (max-width: 840px) {
+      flex-grow: 1;
+    }
+  }
+  &__pay {
+    margin: 1rem auto 0;
+  }
+}

@@ -1,0 +1,60 @@
+@import '../../../../shared/styles/variables';
+
+.site-header {
+  padding: 1rem 0;
+  background: $background-primary;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  &__item {
+    line-height: 2.5rem;
+    color: $text-color-primary;
+    position: relative;
+    &:not(&--logo) {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+    &--logo {
+      margin-right: auto;
+      font-size: 1.3rem;
+      @media (min-width: 480px) {
+        font-size: 1.8rem;
+      }
+    }
+    &--basket {
+      @media (max-width: 480px) {
+        font-size: 0;
+      }
+    }
+    @at-root a#{&} {
+      &:active,
+      &:hover,
+      &:focus {
+        color: $text-color-primary;
+        text-decoration: none;
+      }
+    }
+  }
+  @media (max-width: 480px) {
+    &__basket-count-wrap {
+      position: absolute;
+      top: 0;
+      right: 0;
+      line-height: 1;
+    }
+    &__basket-count {
+      font-size: 0.75rem;
+    }
+  }
+}
+.ultra-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  @media (min-width: 480px) {
+    gap: 2rem;
+  }
+}

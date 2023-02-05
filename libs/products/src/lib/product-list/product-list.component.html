@@ -1,0 +1,21 @@
+<ul class="product-list">
+  <ng-container *ngIf="productsPending; else itemsTemplate">
+    <li
+      class="product-list__item product-list__item--skeleton"
+      *ngFor="let _ of skeletonArray"
+    ></li>
+  </ng-container>
+  <ng-template #itemsTemplate>
+    <li class="product-list__item" *ngFor="let product of products; trackBy: trackById">
+      <ultra-product-preview
+        [product]="product"
+        [isSelected]="selectedIds?.[product.id]"
+        (selectProduct)="selectProduct.emit(product)"
+      ></ultra-product-preview>
+    </li>
+  </ng-template>
+  <!--  to handle last flex row on all resolutions-->
+  <li class="product-list__item"></li>
+  <li class="product-list__item"></li>
+  <li class="product-list__item"></li>
+</ul>

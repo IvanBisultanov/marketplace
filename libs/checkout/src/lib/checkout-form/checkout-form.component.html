@@ -1,0 +1,127 @@
+<form
+  *ngIf="checkoutStatus"
+  class="checkout-form"
+  [formGroup]="form"
+  (submit)="checkout.emit(form.value)"
+>
+  <div class="checkout-form__group">
+    <div class="checkout-form__group-title">* Name</div>
+    <div class="checkout-form__item checkout-form__item--half-width">
+      <mat-form-field
+        class="checkout-form__item checkout-form__item--half-width"
+        appearance="outline"
+      >
+        <mat-label>First</mat-label>
+        <input
+          matInput
+          required
+          [disabled]="checkoutStatus.pending"
+          name="firstName"
+          formControlName="firstName"
+        />
+        <mat-error *ngIf="form.controls['firstName'].invalid"> This field is required </mat-error>
+      </mat-form-field>
+      <mat-form-field
+        class="checkout-form__item checkout-form__item--half-width"
+        appearance="outline"
+      >
+        <mat-label>Last</mat-label>
+        <input
+          matInput
+          required
+          [disabled]="checkoutStatus.pending"
+          name="lastName"
+          formControlName="lastName"
+        />
+        <mat-error *ngIf="form.controls['lastName'].invalid"> This field is required </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="checkout-form__group">
+    <div class="checkout-form__group-title">* Address</div>
+    <mat-form-field
+      class="checkout-form__item checkout-form__item--full-width"
+      appearance="outline"
+    >
+      <mat-label>Street</mat-label>
+      <input
+        matInput
+        required
+        [disabled]="checkoutStatus.pending"
+        name="street"
+        formControlName="street"
+      />
+      <mat-error *ngIf="form.controls['street'].invalid"> This field is required </mat-error>
+    </mat-form-field>
+    <mat-form-field
+      class="checkout-form__item checkout-form__item--half-width"
+      appearance="outline"
+    >
+      <mat-label>City</mat-label>
+      <input
+        matInput
+        required
+        [disabled]="checkoutStatus.pending"
+        name="city"
+        formControlName="city"
+      />
+      <mat-error *ngIf="form.controls['city'].invalid"> This field is required </mat-error>
+    </mat-form-field>
+    <mat-form-field
+      class="checkout-form__item checkout-form__item--half-width"
+      appearance="outline"
+    >
+      <mat-label>State</mat-label>
+      <input
+        matInput
+        required
+        autocomplete="email"
+        [disabled]="checkoutStatus.pending"
+        name="state"
+        formControlName="state"
+      />
+      <mat-error *ngIf="form.controls['state'].invalid"> This field is required </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div class="checkout-form__group">
+    <div class="checkout-form__group-title">* E-mail</div>
+    <mat-form-field
+      class="checkout-form__item checkout-form__item--half-width"
+      appearance="outline"
+    >
+      <mat-label>Email</mat-label>
+      <input
+        matInput
+        required
+        autocomplete="email"
+        [disabled]="checkoutStatus.pending"
+        name="email"
+        formControlName="email"
+        minlength="6"
+        maxlength="254"
+        [pattern]="urlPattern"
+      />
+      <mat-error *ngIf="form.controls['email'].invalid"> Enter a valid email address </mat-error>
+    </mat-form-field>
+  </div>
+
+  <ultra-total-basket-value
+    [deposit]="deposit"
+    [selectedProducts]="selectedProducts"
+  ></ultra-total-basket-value>
+
+  <ng-container *ngIf="selectedProducts | totalPrice as totalPrice">
+    <ng-container *ngIf="selectedProducts && deposit">
+      <button
+        [disabled]="checkoutStatus.pending || form.invalid || totalPrice > deposit.value"
+        class="checkout-form__pay"
+        mat-raised-button
+        color="primary"
+      >
+        Pay
+      </button>
+    </ng-container>
+  </ng-container>
+</form>
+<!--todo clarify exact validation rules and implement-->

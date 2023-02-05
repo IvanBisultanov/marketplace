@@ -1,0 +1,9 @@
+.products-shell {
+  &__error {
+    padding: 2rem 0;
+    text-align: center;
+    &-message {
+      margin-bottom: 1rem;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+:host {
+  flex-grow: 1;
+  flex-direction: column;
+  display: flex;
+}
+.checkout-success {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  gap: 2rem;
+}

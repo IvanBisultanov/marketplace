@@ -1,0 +1,31 @@
+<div
+  class="basket-shell"
+  *ngIf="{
+    selectedProducts: selectedProducts$ | async,
+    deposit: deposit$ | async,
+    selectedProductsPending: selectedProductsPending$ | async
+  } as context"
+>
+  <ultra-basket-list
+    [products]="context.selectedProducts"
+    (removeFromBasket)="removeFromBasket($event)"
+  ></ultra-basket-list>
+  <ultra-total-basket-value
+    [deposit]="context.deposit"
+    [selectedProducts]="context.selectedProducts"
+  ></ultra-total-basket-value>
+  <ng-container *ngIf="context.selectedProducts | totalPrice as totalPrice">
+    <ng-container *ngIf="context.selectedProducts && context.deposit">
+      <a
+        class="basket-shell__checkout"
+        mat-raised-button
+        color="primary"
+        *ngIf="context.selectedProducts.length"
+        [disabled]="totalPrice > context.deposit.value || context.selectedProductsPending"
+        routerLink="/checkout"
+      >
+        Checkout
+      </a>
+    </ng-container>
+  </ng-container>
+</div>

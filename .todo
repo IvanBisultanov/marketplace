@@ -1,0 +1,48 @@
+todo disclaimer snackbar
+
+// The home page should:
+// The header should show:
+// - a site title (with a click to redirect to home)
+// - a wallet balance (have it initialised with a value)
+// - a basket icon with a count of items (a click on the basket will navigate to a basket route)
+// Display a list of purchasable products.
+// Here to keep it simple you will mock the data.
+// But the implementation should allow you to switch to a real endpoint without much refactoring.
+// A click on a product will add it to the basket and disable it (items can be added once only)
+
+
+// The basket page should:
+// List the items and allow removal
+// Display a total price
+// Display a checkout button:
+// - enabled when the balance is su!cient
+// - disabled when the balance is not su!cient
+// - display an error message for the user to know when the balance is not enough
+// - a click will redirect to the Checkout screen
+// Note: No backend is needed in this exercise, but for any feature,
+// make the implementation ready to support a backend.
+
+
+// The checkout page should:
+// • Display a form allowing the user to enter his personal information
+// • Basic validation rules should be applied to not allow purchases without a valid form
+// • A pay button should trigger the purchase and display a successful screen if everything works as
+
+
+// A success screen will allow the user to go back to the home. Note that:
+// • The balance should reflect the money spent
+// • The marketplace should not show the items bought anymore expected
+
+
+// Here we are expecting you to demonstrate, your ability to:
+// • Use the latest version of Angular
+// • Organise a clean code base that can scale
+// • Use Bootstrap or any other similar library
+// • Implement a proper routing logic
+// • Use a store of your choice (ngxs/ngrx)
+// • Be cautious on the form implemented rules
+
+Bonus
+• Implementing Unit Tests
+• Implementing e2e Tests
+• Implementing this inside of Electron

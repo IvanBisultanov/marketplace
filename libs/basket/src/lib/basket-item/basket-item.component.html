@@ -1,0 +1,18 @@
+<div *ngIf="product" class="basket-item">
+  <img [src]="product.img" [alt]="product.title" class="basket-item__img" />
+  <div>
+    <div class="basket-item__title">{{ product.title }}</div>
+    <div class="basket-item__price">
+      {{ product.price.value | currency : product.price.currency }}
+    </div>
+  </div>
+  <button
+    [disabled]="product.pending"
+    mat-mini-fab
+    class="basket-item__delete"
+    type="button"
+    (click)="removeFromBasket.emit()"
+  >
+    <span class="material-symbols-outlined">{{ product.pending ? 'pending' : 'delete' }}</span>
+  </button>
+</div>

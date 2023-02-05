@@ -1,0 +1,8 @@
+<ng-container *ngIf="selectedProducts | totalPrice as totalPrice">
+  <ng-container *ngIf="selectedProducts && deposit">
+    <div>Total: {{ totalPrice | currency : deposit.currency }}</div>
+    <div *ngIf="totalPrice > deposit.value" class="total-basket-value__error">
+      Balance is not enough
+    </div>
+  </ng-container>
+</ng-container>

@@ -19,6 +19,9 @@
           "apps/marketplace-fe/src/favicon.ico",
           "apps/marketplace-fe/src/assets"
         ],
+        "stylePreprocessorOptions": {
+          "includePaths": ["libs/shell/styles"]
+        },
         "styles": ["apps/marketplace-fe/src/styles.scss"],
         "scripts": []
       },

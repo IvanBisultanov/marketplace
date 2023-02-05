@@ -14,7 +14,20 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@ultra/api": ["libs/shared/api/index.ts"],
+      "@ultra/basket": ["libs/basket/src/index.ts"],
+      "@ultra/checkout": ["libs/checkout/src/index.ts"],
+      "@ultra/components": ["libs/shared/components/index.ts"],
+      "@ultra/models": ["libs/shared/models/index.ts"],
+      "@ultra/pipes": ["libs/shared/pipes/index.ts"],
+      "@ultra/products": ["libs/products/src/index.ts"],
+      "@ultra/regex": ["libs/shared/regex/index.ts"],
+      "@ultra/shared/state": ["libs/shared/state/src/index.ts"],
+      "@ultra/shell": ["libs/shell/src/index.ts"],
+      "@ultra/tokens": ["libs/shared/tokens/index.ts"],
+      "@ultra/validators": ["libs/shared/validators/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="ultra-container">
+    <a class="site-header__item site-header__item--logo" routerLink="/"> Marketplace </a>
+    <span class="site-header__item" *ngIf="deposit$ | async as deposit">
+      <span class="material-symbols-outlined">account_balance_wallet</span>
+      {{ deposit.value | currency : deposit.currency }}
+    </span>
+    <a
+      *ngIf="selectedProductIds$ | async as selectedProductIds"
+      class="site-header__item site-header__item--basket"
+      [routerLink]="[selectedProductIds.length ? '/basket' : '/']"
+    >
+      <span class="material-symbols-outlined">shopping_basket</span>
+      Basket
+      <span class="site-header__basket-count-wrap" *ngIf="selectedProductIds.length">
+        (<span class="site-header__basket-count">{{ selectedProductIds.length }}</span
+        >)
+      </span>
+    </a>
+  </div>
+</header>

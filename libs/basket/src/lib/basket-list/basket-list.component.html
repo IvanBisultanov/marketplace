@@ -1,0 +1,8 @@
+<ul class="basket-list">
+  <li class="basket-list__item" *ngFor="let product of products; trackBy: trackById">
+    <ultra-basket-item
+      [product]="product"
+      (removeFromBasket)="removeFromBasket.emit(product)"
+    ></ultra-basket-item>
+  </li>
+</ul>

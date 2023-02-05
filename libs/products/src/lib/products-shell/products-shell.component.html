@@ -1,0 +1,20 @@
+<div
+  class="products-shell"
+  *ngIf="{
+    productsError: productsError$ | async,
+    productsPending: productsPending$ | async
+  } as context"
+>
+  <ultra-product-list
+    *ngIf="!context.productsError"
+    [productsPending]="context.productsPending"
+    [products]="products$ | async"
+    [selectedIds]="selectedIds$ | async"
+    (selectProduct)="selectProduct($event)"
+  ></ultra-product-list>
+  <div *ngIf="context.productsError" class="products-shell__error">
+    <h3 class="products-shell__error-message">Something went wrong</h3>
+    <button mat-raised-button color="primary" (click)="loadProducts()">Try again</button>
+  </div>
+</div>
+<!--// todo ** products loading UI-->

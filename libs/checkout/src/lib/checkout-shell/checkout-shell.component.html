@@ -1,0 +1,10 @@
+<ng-container *ngIf="{ checkoutStatus: checkoutStatus$ | async } as context">
+  <ultra-checkout-form
+    *ngIf="!context.checkoutStatus?.success"
+    [deposit]="deposit$ | async"
+    [selectedProducts]="selectedProducts$ | async"
+    [checkoutStatus]="checkoutStatus$ | async"
+    (checkout)="checkout($event)"
+  ></ultra-checkout-form>
+  <ultra-checkout-success *ngIf="context.checkoutStatus?.success"></ultra-checkout-success>
+</ng-container>
